@@ -98,12 +98,19 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
+
+    function setup() {
+      var height = $( window ).height();
+      $(".panel-body").css("height", height - 140);
+      $(".footer").css("height", height);
+      $("body").css("margin-bottom", height);
+    };
+
     $( document ).ready(function() {
-    // Handler for .ready() called.
-    var height = $( window ).height();
-    $(".panel-body").css("height", height - 140);
-    $(".footer").css("height", height);
-    $("body").css("margin-bottom", height);
+      setup();
+      $( window ).resize(function() {
+        setup();
+      });
     });
     </script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
